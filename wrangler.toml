@@ -1,6 +1,5 @@
-name = "helloworld"
-type = "javascript"
-
+name = "binpack"
+type = "webpack"
 account_id = ""
 workers_dev = true
 route = ""
