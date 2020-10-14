@@ -5,6 +5,9 @@
   "description": "A template for kick starting a Cloudflare Workers project",
   "main": "index.js",
   "scripts": {
+    "start": "CF_ACCOUNT_ID=$(cat ACCOUNT_ID) wrangler dev",
+    "preview": "CF_ACCOUNT_ID=$(cat ACCOUNT_ID) wrangler preview --watch",
+    "publish:cf": "CF_ACCOUNT_ID=$(cat ACCOUNT_ID) wrangler publish",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write '**/*.{js,css,json,md}'"
   },
@@ -12,5 +15,9 @@
   "license": "MIT",
   "devDependencies": {
     "prettier": "^1.18.2"
+  },
+  "dependencies": {
+    "path-browserify": "^1.0.1",
+    "rollup": "^2.30.0"
   }
 }
