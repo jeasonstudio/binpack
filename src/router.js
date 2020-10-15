@@ -1,3 +1,5 @@
+import Context from './context';
+
 /**
  * Helper functions that when passed a request will return a
  * boolean indicating if the request uses that HTTP method,
@@ -44,7 +46,12 @@ export default class Router {
   handle(conditions, handler, middlewares = []) {
     this.routes.push({
       conditions,
-      handler,
+      handler: async req => {
+        const ctx = new Context(req, null);
+        const res = await handler(ctx);
+        if (res instanceof Response) return res;
+        return ctx.response || new Response('error');
+      },
       middlewares: [...this.globalMiddlewares, ...middlewares],
     });
     return this;

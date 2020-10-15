@@ -9,8 +9,9 @@ const router = new Router();
 // router.post('.*/foo.*', request => handler(request));
 // router.get('/demos/router/foo', request => fetch(request)); // return the response from the origin
 
-router.get('/home', resolvers.getHomepageResolver);
 router.get(constants.HOME, resolvers.getHomepageResolver);
+router.get(constants.GLOBBINGDIR, resolvers.getFoo2);
+router.get(constants.GLOBBING, resolvers.getFoo);
 
 async function routeHandler(request) {
   return router.route(request);
