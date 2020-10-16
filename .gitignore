@@ -9,3 +9,5 @@ worker/
 node_modules/
 .cargo-ok
 ACCOUNT_ID
+.env
+.env.*
